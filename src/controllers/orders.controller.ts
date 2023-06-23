@@ -22,13 +22,15 @@ export class OrdersController {
   @Get()
   async findAll() {
     const orders = await prisma.order.findMany({
-      select: {
-        id: true,
-        assetId: true,
-        price: true,
-        status: true,
+      include: {
+        asset: true,
       },
     });
-    return orders;
+    return orders.map((order) => ({
+      id: order.id,
+      asset_id: order.assetId,
+      price: order.price,
+      status: order.status,
+    }));
   }
 }
