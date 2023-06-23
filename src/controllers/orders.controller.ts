@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { Order } from '../models/order.model';
+import { Order } from '@prisma/client';
 
 @Controller('api/orders')
 export class OrdersController {

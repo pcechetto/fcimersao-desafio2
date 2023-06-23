@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { Asset } from '../models/asset.model';
+//import { Asset } from '.../prisma/assets.model';
+import { Asset } from '@prisma/client';
 
 @Controller('api/assets')
 export class AssetsController {

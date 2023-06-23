@@ -7,4 +7,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Asset {
+  id       Int    @id @map("_id")
+  symbol   String
+  orders   Order[]
+}
+
+model Order {
+  id       Int    @id @map("_id")
+  asset    Asset  @relation(fields: [assetId], references: [id])
+  assetId  Int
+  price    Float
+  status   String
+}
+
 
