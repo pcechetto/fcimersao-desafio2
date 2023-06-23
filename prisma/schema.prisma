@@ -3,9 +3,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
+//generator client {
+//  provider = "prisma-client-js"
+//}
 
 model Asset {
   id     String @id @map("_id")
@@ -18,13 +18,13 @@ model Order {
   asset    Asset  @relation(fields: [assetId], references: [id])
   assetId  String
   price    Float
-  status   OrderStatus
+  status   OrderStatus @default(PENDING)
 }
 
 enum OrderStatus {
-  OPEN
+  //OPEN
   PENDING
-  CLOSED
+  //CLOSED
 }
 
 
