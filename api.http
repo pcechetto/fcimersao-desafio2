@@ -1,0 +1,23 @@
+POST http://localhost:3000/api/assets
+Content-Type: application/json
+
+{
+  "id": "teste",
+  "symbol": "TST"
+}
+
+###
+GET http://localhost:3000/api/assets
+
+
+###
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "asset_id": "1",
+  "price": "300"
+}
+
+###
+GET http://localhost:3000/api/orders
