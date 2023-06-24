@@ -15,10 +15,8 @@ POST http://localhost:3000/api/orders
 Content-Type: application/json
 
 {
-  "id": "",
   "asset_id": "1",
-  "price": "300",
-  "status": ""
+  "price": "500"
 }
 
 ###

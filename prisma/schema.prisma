@@ -1,21 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+  output = "../node_modules/.prisma/client"
+}
+
+
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-//generator client {
-//  provider = "prisma-client-js"
-//}
 
 model Asset {
   id     String @id @map("_id")
   symbol String
-  orders Order[]
 }
 
 model Order {
-  id       String      @id @default(auto()) @map("_id") @db.ObjectId
-  asset    Asset  @relation(fields: [assetId], references: [id])
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   assetId  String
   price    Float
   status   OrderStatus @default(PENDING)

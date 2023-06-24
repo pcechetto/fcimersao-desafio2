@@ -19,18 +19,23 @@ export class OrdersController {
     return order;
   }
 
-  @Get()
-  async findAll() {
-    const orders = await prisma.order.findMany({
-      include: {
-        asset: true,
-      },
-    });
-    return orders.map((order) => ({
-      id: order.id,
-      asset_id: order.assetId,
-      price: order.price,
-      status: order.status,
-    }));
-  }
+  // @Get()
+  // async findAll() {
+  //   const orders = await prisma.order.findMany({
+  //     include: {
+  //       asset: true,
+  //     },
+  //   });
+  //   return orders;
+  // }
+
+  //@Get()
+  //async findAll(): Promise<Order[]> {
+  //  const orders = await prisma.order.findMany({
+  //    include: {
+  //      asset: true,
+  //    },
+  //  });
+  //  return orders;
+  //}
 }
