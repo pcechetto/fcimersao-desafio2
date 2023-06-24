@@ -11,13 +11,17 @@ datasource db {
 
 
 model Asset {
-  id     String @id @map("_id")
-  symbol String
+  id         String   @id @map("_id")
+  symbol     String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  Order      Order[]
 }
 
 model Order {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  assetId  String
+  id       String      @id @default(auto()) @map("_id") @db.ObjectId
+  Asset    Asset       @relation(fields: [asset_id], references: [id])
+  asset_id String
   price    Float
   status   OrderStatus @default(PENDING)
 }
